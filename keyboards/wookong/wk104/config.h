@@ -14,21 +14,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "quantum.h"
+ #pragma once
+ 
+ #define RGB_MATRIX_LED_COUNT 104
 
-#ifdef RGB_MATRIX_ENABLE
-#ifdef CAPS_LOCK_LED_INDEX
-bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
-    if (!rgb_matrix_indicators_advanced_user(led_min, led_max)) { return false; }
-    if (host_keyboard_led_state().caps_lock) {
-        RGB_MATRIX_INDICATOR_SET_COLOR(CAPS_LOCK_LED_INDEX, 255, 255, 255);
-    } else {
-        if (!rgb_matrix_get_flags()) {
-           RGB_MATRIX_INDICATOR_SET_COLOR(CAPS_LOCK_LED_INDEX, 0, 0, 0);
-        }
-    }
-    return true;
-}
-#endif
+/* Enable CapsLcok LED*/
+#define CAPS_LOCK_LED_INDEX 73
+#define NUM_LOCK_LED_INDEX 19
 
-#endif // RGB_MATRIX_ENABLE
+#define SHR_SERIES_NUM 2
+#define SHR_CLOCK_PIN A0
+#define SHR_DATA_PIN A1
+#define SHR_LATCH_PIN C15
